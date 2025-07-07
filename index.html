@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+           
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <title>Document</title>
+
+</head>
+<body>
+
+<nav class="bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+
+      <div class="flex space-x-4">
+        <!-- logo -->
+        <div>
+          <a href="#" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-600">
+        <svg width="25" height="17" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.3106 9.17141L9.55812 15.5981L5.80569 9.17141H13.3106ZM14.3159 8.597H4.79636L9.55812 16.7349L14.3159 8.597Z" fill="#263238"/>
+        <path d="M19.8347 1.17803L23.5871 7.60476H16.0822L19.8347 1.17803ZM19.8347 0.0292511L15.0729 8.16711H24.5964L19.8347 0.0292511Z" fill="#263238"/>
+        <path d="M0.234009 0.0292511L4.2266 7.2272L8.58952 0.209993L0.234009 0.0292511Z" fill="#4CAF4F"/>
+        <path d="M9.55822 0.659807L13.7462 7.8176H5.36214L9.55822 0.659807Z" fill="#4CAF4F"/>
+        <path d="M14.8247 9.38028L19.0167 16.7349H10.4332L14.6944 9.38028H14.8247Z" fill="#4CAF4F"/>
+        <path d="M15.7322 8.93442L19.8347 16.1766L23.9941 8.93442H15.7322Z" fill="#4CAF4F"/>
+        </svg>
+
+            <span class="font-bold">Nexcent</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- nav -->
+      <div class="hidden md:flex items-center space-x-1">
+        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-600">Home</a>
+        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-600">Features</a>
+        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-600">Community</a>
+        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-600">Blog</a>
+        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-600">Pricing</a>
+     
+        <div x-data="{ open: false }">
+          <a href="#" 
+            @click.prevent="open = true"
+            class="inline-flex items-center px-3 py-2 bg-green-500 text-white hover:bg-green-700 rounded transition duration-300">
+            Register Now
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+            </svg>
+          </a>
+
+          <!-- Modal -->
+          <div 
+            x-show="open"
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+            x-transition
+          >
+            <div class="bg-white rounded-lg p-6 w-full max-w-md relative">
+              
+              <button @click="open = false" class="absolute top-2 right-2 text-gray-600 hover:text-black">
+                ✕
+              </button>
+
+              <h2 class="text-2xl font-bold mb-4">Creat an account</h2>
+
+              <form>
+
+                 <div class="mb-4">
+                  <label class="block text-gray-700">Fullname</label>
+                  <input type="text" class="w-full mt-1 px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-green-300" required>
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-gray-700">Email</label>
+                  <input type="email" class="w-full mt-1 px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-green-300" required>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-gray-700">Password</label>
+                  <input type="password" class="w-full mt-1 px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-green-300" required>
+                </div>
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded transition">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="md:hidden flex items-center">
+        <button class="mobile-menu-button">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- mobile menu -->
+  <div class="mobile-menu hidden md:hidden">
+        <a href="#" class="block py-5 px-3 text-gray-700 hover:text-gray-600">Home</a>
+        <a href="#" class="block py-5 px-3 text-gray-700 hover:text-gray-600">Features</a>
+        <a href="#" class="block py-5 px-3 text-gray-700 hover:text-gray-600">Community</a>
+        <a href="#" class="block py-5 px-3 text-gray-700 hover:text-gray-600">Blog</a>
+        <a href="#" class="block py-5 px-3 text-gray-700 hover:text-gray-600">Pricing</a>
+            <a href="#" 
+            @click.prevent="open = true"
+            class="inline-flex items-center px-3 py-2 bg-green-500 text-white hover:bg-green-700 rounded transition duration-300">
+            Register Now
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+            </svg>
+          </a>
+        </button>
+    </div>
+</nav>
+
+  <section class="dark:bg-gray-100 dark:text-gray-800">
+  <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+    
+    <div class="flex flex-col justify-center p-6 rounded-sm lg:w-3/5 xl:w-3/5 lg:text-left">
+      <h5 class="text-3xl font-bold leading-none sm:text-6xl">
+        Lessons and insight
+        <span class="dark:text-white text-green-500"><br>from 8 years</span>
+      </h5>
+      <p class="mt-6 mb-8 text-lg sm:mb-12">
+        Where to grow your business as a photographer: site or social media?
+      </p>
+      <a href="#" 
+         @click.prevent="open = true"
+         class="inline-flex w-fit items-center px-3 py-2 bg-green-500 text-white hover:bg-green-700 rounded transition duration-300">
+        Register
+      </a>
+    </div>
+
+  
+    <div class="flex items-center justify-center p-6 lg:w-2/5 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+      <img src="assets/test.svg" alt="" class="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+    </div>
+    
+  </div>
+
+  <div class="flex justify-center space-x-3 absolute bottom-4 left-0 right-0">
+    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+    <span class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-400"></span>
+    <span class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-400"></span>
+  </div>
+
+</section>
+
+
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 lg:py-16 mx-auto max-w-screen-xl px-4">
+    <h2 class="mb-8 lg:mb-16 text-3xl font-extrabold tracking-tight leading-tight text-center text-gray-600 dark:text-white md:text-4xl">Our clients</h2>
+    <p class="text-center mb-8">We have been working with some Fortune 500+ clients</p>
+
+    <div class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-3 lg:grid-cols-6 dark:text-gray-400">
+    
+      <a href="#" class="flex justify-center items-center">
+        <img src="assets/client1.svg" alt="Client 1" class="h-12 grayscale hover:grayscale-0 transition duration-300">
+      </a>
+ 
+      <a href="#" class="flex justify-center items-center">
+        <img src="assets/client2.svg" alt="Client 2" class="h-12 grayscale hover:grayscale-0 transition duration-300">
+      </a>
+      
+      <a href="#" class="flex justify-center items-center">
+        <img src="assets/client3.svg" alt="Client 3" class="h-12 grayscale hover:grayscale-0 transition duration-300">
+      </a>
+      
+      <a href="#" class="flex justify-center items-center">
+        <img src="assets/client4.svg" alt="Client 4" class="h-12 grayscale hover:grayscale-0 transition duration-300">
+      </a>
+
+      <a href="#" class="flex justify-center items-center">
+        <img src="assets/client5.svg" alt="Client 5" class="h-12 grayscale hover:grayscale-0 transition duration-300">
+      </a>
+   
+      <a href="#" class="flex justify-center items-center">
+        <img src="assets/client6.svg" alt="Client 6" class="h-12 grayscale hover:grayscale-0 transition duration-300">
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 lg:py-16 mx-auto max-w-screen-xl px-4">
+    
+ 
+    <h2 class="mb-4 text-3xl font-extrabold text-center text-gray-600 dark:text-white md:text-4xl leading-snug">
+      Manage your entire community<br />in a single system
+    </h2>
+    <p class="text-center mb-12 text-gray-600 dark:text-gray-300 text-lg">
+      Who is NextCent suitable for?
+    </p>
+
+   
+    <div class="flex flex-col md:flex-row justify-center items-stretch gap-10">
+
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm text-center max-w-xs p-6">
+        <div class="mb-6 relative w-full flex justify-center">
+          <div class="absolute w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-tl-[20px] rounded-br-[20px] translate-x-2 top-0 z-0"></div>
+          <img src="assets/comm1.svg" alt="Community 1" class="w-10 h-10 relative z-10">
+        </div>
+        <h3 class="mb-4 text-2xl font-semibold text-center text-gray-600 dark:text-white leading-snug">
+          Membership organisations
+        </h3>
+
+        <p class="text-gray-700 dark:text-gray-300 text-sm">
+          Our membership management software provides full automation of membership renewals and payments.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm text-center max-w-xs p-6">
+        <div class="mb-6 relative w-full flex justify-center">
+          <div class="absolute w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-tl-[20px] rounded-br-[20px] translate-x-2 top-0 z-0"></div>
+          <img src="assets/comm2.svg" alt="Community 2" class="w-10 h-10 relative z-10">
+        </div>
+
+        <h3 class="mb-4 text-2xl font-semibold text-center text-gray-600 dark:text-white leading-snug">
+          National associations
+        </h3>
+
+        <p class="text-gray-700 dark:text-gray-300 text-sm">
+          Our membership management software provides full automation of membership renewals and payments.
+        </p>
+      </div>
+    
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm text-center max-w-xs p-6">
+        <div class="mb-6 relative w-full flex justify-center">
+          
+          <div class="absolute w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-tl-[20px] rounded-br-[20px] translate-x-2 top-0 z-0"></div>
+          <img src="assets/comm3.svg" alt="Community 3" class="w-10 h-10 relative z-10">
+        </div>
+
+        <h3 class="mb-4 text-2xl font-semibold text-center text-gray-600 dark:text-white leading-snug">
+          Clubs and groups
+        </h3>
+
+        <p class="text-gray-700 dark:text-gray-300 text-sm">
+          Our membership management software provides full automation of membership renewals and payments.
+        </p>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+ <section class="dark:bg-gray-100 dark:text-gray-800">
+  <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+    
+    <div class="flex items-center justify-center p-6 lg:w-2/5 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+      <img src="assets/login.svg" alt="" class="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+    </div>
+    
+    <div class="flex flex-col justify-center p-6 rounded-sm lg:w-3/5 xl:w-3/5 lg:text-left">
+    <h2 class="mb-4 text-3xl font-extrabold text-gray-600 dark:text-white md:text-4xl leading-snug">
+        The unseen of spending free years at Pixelgrade
+      </h2>
+
+        <p class="mb-8 text-gray-700 dark:text-gray-300 text-sm">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe asperiores quas omnis culpa earum suscipit modi numquam ducimus itaque fuga fugit, quae vitae rerum, similique amet ratione. Ducimus ullam quis odit eveniet id excepturi voluptatem quidem architecto. Harum culpa nulla molestiae in! Fugit eos quia voluptatum animi quae deleniti vel!
+      </p>
+      
+      <a href="#" 
+         @click.prevent="open = true"
+         class="inline-flex w-fit items-center px-3 py-2 bg-green-500 text-white hover:bg-green-700 rounded transition duration-300">
+        Learn more
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="bg-gray-100 dark:text-gray-800">
+  <div class="container flex flex-col lg:flex-row justify-between gap-8 px-4 mx-auto sm:py-12 lg:py-24">
+
+    <div class="flex flex-col justify-center p-6 lg:w-3/5 xl:w-3/5 lg:text-left">
+      <h2 class="mb-4 text-3xl font-extrabold text-gray-600 dark:text-white md:text-4xl leading-snug">
+        Helping a local
+        <span class="dark:text-white text-green-500"><br>business reinvent itself</span>
+      </h2>
+      <p class="text-lg">
+        We reached here with our hard work and dedication
+      </p>
+    </div>
+
+   
+    <div class="grid grid-cols-2 gap-4 lg:w-2/5">
+  
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm p-4 flex items-center gap-4">
+        <img src="assets/stats1.svg" alt="Stat 1" class="w-10 h-10 text-green-500">
+        <div class="text-left">
+          <h3 class="text-xl font-semibold text-gray-600 dark:text-white leading-snug">2,245,341</h3>
+          <p class="text-gray-700 dark:text-gray-300 text-sm">Members</p>
+        </div>
+      </div>
+
+    
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm p-4 flex items-center gap-4">
+        <img src="assets/stats2.svg" alt="Stat 2" class="w-10 h-10 text-green-500">
+        <div class="text-left">
+          <h3 class="text-xl font-semibold text-gray-600 dark:text-white leading-snug">46,328</h3>
+          <p class="text-gray-700 dark:text-gray-300 text-sm">Clubs</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm p-4 flex items-center gap-4">
+        <img src="assets/stats3.svg" alt="Stat 3" class="w-10 h-10 text-green-500">
+        <div class="text-left">
+          <h3 class="text-xl font-semibold text-gray-600 dark:text-white leading-snug">828,867</h3>
+          <p class="text-gray-700 dark:text-gray-300 text-sm">Events booking</p>
+        </div>
+      </div>
+
+    
+      <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm p-4 flex items-center gap-4">
+        <img src="assets/stats4.svg" alt="Stat 4" class="w-10 h-10 text-green-500">
+        <div class="text-left">
+          <h3 class="text-xl font-semibold text-gray-600 dark:text-white leading-snug">1,926,436</h3>
+          <p class="text-gray-700 dark:text-gray-300 text-sm">Payments</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+ <section class="dark:bg-gray-100 dark:text-gray-800">
+  <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+    
+    <div class="flex items-center justify-center p-6 lg:w-2/5 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+      <img src="assets/signup.svg" alt="" class="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+    </div>
+    
+    <div class="flex flex-col justify-center p-6 rounded-sm lg:w-3/5 xl:w-3/5 lg:text-left">
+    <h2 class="mb-4 text-3xl font-extrabold text-gray-600 dark:text-white md:text-4xl leading-snug">
+        How to design your site footer like we did
+      </h2>
+
+        <p class="mb-8 text-gray-700 dark:text-gray-300 text-sm">
+        Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae nisi ultricies, non aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus efficitur quis massa. Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. Donec consectetur faucibus ipsum id gravida.
+      </p>
+      
+      <a href="#" 
+         @click.prevent="open = true"
+         class="inline-flex w-fit items-center px-3 py-2 bg-green-500 text-white hover:bg-green-700 rounded transition duration-300">
+        Learn more
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="dark:bg-gray-100 bg-gray-100 dark:text-gray-800">
+  <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+
+  
+    <div class="flex items-center justify-center p-6 lg:w-2/5 lg:mt-0">
+      <img src="assets/customer.svg" alt="" class="object-contain h-56 sm:h-60 lg:h-72 xl:h-80 2xl:h-80">
+    </div>
+
+   
+    <div class="flex flex-col p-6 rounded-sm lg:w-3/5 xl:w-3/5 lg:text-left">
+     
+      <p class="mb-6 text-gray-700 dark:text-gray-300 text-sm">
+        Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus tincidunt
+        ullamcorper. Proin eu enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie
+        arcu, at hendrerit elit. Morbi laoreet elit at ligula molestie, nec molestie mi blandit. Suspendisse cursus
+        tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse eget lorem eu turpis vestibulum pretium.
+        Suspendisse potenti. Quisque malesuada enim sapien, vitae placerat ante feugiat eget. Quisque vulputate odio
+        neque, eget efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.
+      </p>
+      <p class="text-green-500 hover:text-green-700 transition duration-300">Tim Smith</p>
+      <p class="mb-6 text-gray-700 dark:text-gray-300 text-sm">British Dragon Boat Racing Association</p>
+
+      <!-- Flex horizontal : logos + lien -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mt-2">
+        <!-- Logos clients -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#"><img src="assets/client1.svg" alt="Client 1" class="h-8 grayscale hover:grayscale-0 transition duration-300"></a>
+          <a href="#"><img src="assets/client2.svg" alt="Client 2" class="h-8 grayscale hover:grayscale-0 transition duration-300"></a>
+          <a href="#"><img src="assets/client3.svg" alt="Client 3" class="h-8 grayscale hover:grayscale-0 transition duration-300"></a>
+          <a href="#"><img src="assets/client4.svg" alt="Client 4" class="h-8 grayscale hover:grayscale-0 transition duration-300"></a>
+          <a href="#"><img src="assets/client5.svg" alt="Client 5" class="h-8 grayscale hover:grayscale-0 transition duration-300"></a>
+          <a href="#"><img src="assets/client6.svg" alt="Client 6" class="h-8 grayscale hover:grayscale-0 transition duration-300"></a>
+        </div>
+
+        <!-- Lien à droite -->
+        <a href="#" class="inline-flex items-center text-green-500 hover:text-green-700 transition duration-300 whitespace-nowrap">
+          Meet all customers
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 lg:py-16 mx-auto max-w-screen-xl px-4">
+    
+ 
+    <h2 class="mb-4 text-3xl font-extrabold text-center text-gray-600 dark:text-white md:text-4xl leading-snug">
+      Caring in the new marketing
+    </h2>
+    <p class="text-center mb-12 text-gray-600 dark:text-gray-300 text-lg">
+    The Nextcent blog is the best place to read about the latest membership insights, trends and more. See who's joining the community, read about how our community are increasing their membership income and lot's more.​
+    </p>
+
+  </div>
+</section>
+
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 lg:py-16 mx-auto max-w-screen-xl px-4 flex flex-col justify-center p-6 lg:w-3/5 xl:w-3/5 lg:text-left">
+    
+    <h5 class="text-3xl text-center font-bold leading-none sm:text-6xl">
+      Pellentesque suscipit fringilla libero eu.
+    </h5>
+
+    <a href="#"
+      @click.prevent="open = true"
+      class="inline-flex items-center px-3 py-2 bg-green-500 text-white hover:bg-green-700 rounded transition duration-300 mt-6 w-fit mx-auto">
+      Get a demo
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-5 h-5 ml-2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+      </svg>
+    </a>
+
+  </div>
+</section>
+
+
+
+</body>
+
+<script>
+  
+const btn = document.querySelector("button.mobile-menu-button");
+const menu = document.querySelector(".mobile-menu");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
+
+</script>
+</html>
