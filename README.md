@@ -1,2 +1,2 @@
 # uwizeyimana-emmanuel-exam
-L'examen que jai fait chez @MiregoAfrica pour la selection pour le développeur front-end
+L'examen que jai fait chez @MiregoAfrica pour la selection d'un développeur front-end
